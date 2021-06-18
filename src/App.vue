@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!--keep-alive离开时保存原来的位置信息-->
+    <keep-alive exculde="Detail">
+      <router-view/>
+    </keep-alive>
     <main-tab-bar></main-tab-bar>
   </div>
 </template>

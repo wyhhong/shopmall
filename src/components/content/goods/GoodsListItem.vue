@@ -1,11 +1,12 @@
 <template>
-  <div class="goods-item">
-   <img :src="goodsItem.img" alt="">
-    <div class="goods-info">
-      <p class="title">{{goodsItem.title}}</p>
-      <span class="price">{{goodsItem.price}}</span>
-      <span class="collect">{{goodsItem.cfav}}</span>
-    </div>
+  <div class="goods-item" @click="itemClick">
+    <!--@load="imageLoad"监听图片加载-->
+     <img :src="goodsItem.img" alt="" @load="imageLoad">
+      <div class="goods-info">
+        <p class="title">{{goodsItem.title}}</p>
+        <span class="price">{{goodsItem.price}}</span>
+        <span class="collect">{{goodsItem.collection}}</span>
+      </div>
   </div>
 </template>
 
@@ -18,6 +19,22 @@
         default(){
           return {}
         }
+      }
+    },
+    methods:{
+      imageLoad(){
+        // console.log("图片加载完成");
+        // console.log((this.$bus));
+         this.$bus.$emit("itemImageLoad")
+      },
+      itemClick(){
+        // this.$router.push("/detail/" + this.goodsItem.id)
+        this.$router.push({
+          path:'/detail',
+          query:{
+            id: this.goodsItem.id
+          }
+        })
       }
     }
   }

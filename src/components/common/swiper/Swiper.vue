@@ -27,7 +27,7 @@
       },
       moveRatio: {
         type: Number,
-        default: 0.5
+        default: 0.25
       },
       showIndicator: {
         type: Boolean,
@@ -213,3 +213,4 @@
     background-color: rgba(212,62,46,1.0);
   }
 </style>
+© 2021 GitHub, Inc.
